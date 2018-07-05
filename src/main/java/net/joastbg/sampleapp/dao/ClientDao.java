@@ -18,27 +18,26 @@ public class ClientDao {
     @Autowired
     SessionFactory sessionFactory;
 
-    public Long persist(Client client){
+    public Long persist(Client client) {
         Session session = sessionFactory.getCurrentSession();
         Long returnID = (Long) session.save(client);
         return returnID;
     }
-    
-    public Client find(Long id){
-		Session session = sessionFactory.getCurrentSession();
-		return (Client) session.load(Client.class, id);
-    }
-    
-    public Client findByNom(String nom) throws DaoException {
-		Session session = sessionFactory.getCurrentSession();
-		Query q = session.createQuery("FROM Client WHERE nom = :nom");
-		q.setString("nom", nom);
-		return (Client)q.uniqueResult();
 
-    }
-
-    public List<Client> findAll(){
+    public Client find(Long id) {
         Session session = sessionFactory.getCurrentSession();
-        return  session.createQuery("from Client").list();
+        return (Client) session.load(Client.class, id);
+    }
+
+    public Client findByNom(String nom) throws DaoException {
+        Session session = sessionFactory.getCurrentSession();
+        Query q = session.createQuery("FROM Client WHERE nom = :nom");
+        q.setString("nom", nom);
+        return (Client) q.uniqueResult();
+    }
+
+    public List<Client> findAll() {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from Client").list();
     }
 }
