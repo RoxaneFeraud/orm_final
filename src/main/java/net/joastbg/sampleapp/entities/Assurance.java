@@ -13,6 +13,29 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Assurance implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column
+    private Long numero;
+
+    @Column
+    private Date dateSouscription;
+
+    @Column
+    private Date dateAnniversaire;
+
+    @Column
+    private Date datePrelevement;
+
+    @Column
+    private Echeances echeance;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_proprietaire")
+    private Client proprietaire;
+
     /**
      * @return the numero
      */
@@ -26,30 +49,6 @@ public class Assurance implements Serializable {
     public void setNumero(Long numero) {
         this.numero = numero;
     }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    
-    @Column
-    private Long numero;
-    
-    @Column
-    private Date dateSouscription;
-    
-    @Column
-    private Date dateAnniversaire;
-
-    @Column
-    private Date datePrelevement;
-    
-    @Column
-    private Echeances echeance;
-    
-    @ManyToOne
-    @JoinColumn(name = "fk_proprietaire")
-    private Client proprietaire;
-    
 
     /**
      * @return the id
@@ -106,6 +105,19 @@ public class Assurance implements Serializable {
     public void setDatePrelevement(Date datePrelevement) {
         this.datePrelevement = datePrelevement;
     }
-    
-    
+
+    /**
+     * @return the echeance
+     */
+    public Echeances getEcheance() {
+        return echeance;
+    }
+
+    /**
+     * @param echeance the echeance to set
+     */
+    public void setEcheance(Echeances echeance) {
+        this.echeance = echeance;
+    }
+
 }

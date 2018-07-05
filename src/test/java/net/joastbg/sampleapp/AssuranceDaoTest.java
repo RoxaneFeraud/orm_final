@@ -5,10 +5,11 @@
  */
 package net.joastbg.sampleapp;
 
+import java.util.Date;
 import junit.framework.Assert;
 import net.joastbg.sampleapp.dao.AssuranceDao;
 import net.joastbg.sampleapp.entities.Assurance;
-import net.joastbg.sampleapp.exceptions.DaoException;
+import net.joastbg.sampleapp.entities.Echeances;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,11 +33,16 @@ public class AssuranceDaoTest {
     AssuranceDao assuranceDao;
 
     Assurance assurance;
+    Echeances echeance;
 
     @Before
     public void setUp() {
+        echeance = new Echeances();
+        echeance.setPrix(1000L);
+        echeance.setDateEmissionFacture(new Date(2017-03-12));
         assurance = new Assurance();
         assurance.setNumero(123456L);
+        assurance.setEcheance(echeance);
     }
 
     @Test
