@@ -35,6 +35,7 @@ public class CompteDaoTest {
         client = new Client();
         client.setNom("Cathy Catou");
         compte.setProprietaire(client);
+        compte.setPrincipal(true);
     }
 
     @Test

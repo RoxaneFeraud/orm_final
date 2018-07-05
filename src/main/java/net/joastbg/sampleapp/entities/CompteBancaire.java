@@ -87,4 +87,18 @@ public class CompteBancaire {
         this.proprietaire = proprietaire;
     }
 
+    /**
+     * @return the principal
+     */
+    public boolean isPrincipal() {
+        return principal;
+    }
+
+    /**
+     * @param principal the principal to set
+     */
+    public void setPrincipal(boolean principal) {
+        this.principal = principal;
+    }
+
 }
