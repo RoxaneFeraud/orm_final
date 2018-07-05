@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import net.joastbg.sampleapp.entities.CompteBancaire;
 import net.joastbg.sampleapp.exceptions.DaoException;
 import org.hibernate.Query;
 
