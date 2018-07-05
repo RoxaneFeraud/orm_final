@@ -19,34 +19,34 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author rfera
  */
-
 @Service
 @Transactional
 public class ContactDao {
+
     @Autowired
     SessionFactory sessionFactory;
 
-    public Long persist(Contact contact){
+    public Long persist(Contact contact) {
         Session session = sessionFactory.getCurrentSession();
         Long returnID = (Long) session.save(contact);
         return returnID;
     }
-    
-    public Contact find(Long id){
-		Session session = sessionFactory.getCurrentSession();
-		return (Contact) session.load(Contact.class, id);
-    }
-    
-    public Contact findByValeur(String valeur) throws DaoException {
-		Session session = sessionFactory.getCurrentSession();
-		Query q = session.createQuery("FROM Contact WHERE valeur = :valeur");
-		q.setString("valeur", valeur);
-		return (Contact)q.uniqueResult();
 
-    }
-
-    public List<Contact> findAll(){
+    public Contact find(Long id) {
         Session session = sessionFactory.getCurrentSession();
-        return  session.createQuery("from Contact").list();
+        return (Contact) session.load(Contact.class, id);
     }
+
+    public Contact findByValeur(String valeur) throws DaoException {
+        Session session = sessionFactory.getCurrentSession();
+        Query q = session.createQuery("FROM Contact WHERE valeur = :valeur");
+        q.setString("valeur", valeur);
+        return (Contact) q.uniqueResult();
+    }
+
+    public List<Contact> findAll() {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from Contact").list();
+    }
+
 }
