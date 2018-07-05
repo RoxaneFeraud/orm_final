@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
- * @author rfera
+ * @author rferaud
  */
 @Service
 @Transactional
